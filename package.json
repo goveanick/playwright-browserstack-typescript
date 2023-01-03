@@ -8,8 +8,7 @@
     "dotenv": "^16.0.3"
   },
   "scripts": {
-    "test:local": "yarn playwright test --config=./playwright.config.ts",
-    "test:bstack": "yarn playwright test --config=./playwright.config.bstack.ts"
+    "test": "yarn playwright test --config=./playwright.config.ts"
   },
   "dependencies": {}
 }

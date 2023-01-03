@@ -1,6 +1,6 @@
 // import { test, expect } from '@playwright/test';
 import { expect } from '@playwright/test';
-import {test} from '../playwright.config.bstack';
+import {test} from '../fixtures/browserstack';
 
 test('homepage has title and links to intro page', async ({ page }) => {
   await page.goto('https://playwright.dev/');
