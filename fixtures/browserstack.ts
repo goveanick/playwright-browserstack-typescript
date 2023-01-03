@@ -15,9 +15,6 @@ export const test = base.extend({
   
     page: async ({ page, playwright }, use, testInfo) => {
       
-      // Use BrowserStack Launched Browser according to capabilities for cross-browser testing.
-    //   if (testInfo.project.name.match(/browserstack/)) { // If any part of the project name outlined in the playwright.config.js file matches "browserstack", fall into this condition
-
     const vBrowser = await playwright.chromium.connect({ wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(caps))}`,}); // I guess this is needed to connect to bstack cloud server??
 
     // I guess these next lines will create a Context and then create a new Page based on that context that we can then use???
