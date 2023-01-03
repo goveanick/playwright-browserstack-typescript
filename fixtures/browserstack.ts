@@ -13,7 +13,7 @@ const caps = {
 
 export const test = base.extend({
   
-    page: async ({ page, playwright }, use, testInfo) => {
+    page: async ({ playwright }, use, testInfo) => {
       
     const vBrowser = await playwright.chromium.connect({ wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(caps))}`,}); // I guess this is needed to connect to bstack cloud server??
 
