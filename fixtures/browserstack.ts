@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test';
-import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+import * as dotenv from 'dotenv'
 dotenv.config();
 
 const caps = {
@@ -15,13 +15,11 @@ export const test = base.extend({
   
     page: async ({ playwright }, use, testInfo) => {
       
-    const vBrowser = await playwright.chromium.connect({ wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(caps))}`,}); // I guess this is needed to connect to bstack cloud server??
-
-    // I guess these next lines will create a Context and then create a new Page based on that context that we can then use???
-    const vContext = await vBrowser.newContext(testInfo.project.use);
-    const vPage = await vContext.newPage();
-    await use(vPage);
-    await vPage.close();
-    await vBrowser.close();
-      }
+        const vBrowser = await playwright.chromium.connect({ wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(caps))}`,});
+        const vContext = await vBrowser.newContext(testInfo.project.use);
+        const vPage = await vContext.newPage();
+        await use(vPage);
+        await vPage.close();
+        await vBrowser.close();
+    }
 });
